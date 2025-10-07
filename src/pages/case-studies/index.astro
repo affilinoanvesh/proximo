@@ -1,0 +1,155 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Case studies page structured data
+const caseStudiesStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Case Studies",
+  "description": "Real results for real businesses - see how Proximo Digital has helped clients succeed with digital marketing solutions.",
+  "mainEntity": [
+    {
+      "@type": "Article",
+      "name": "Bella's Cupcakes Case Study",
+      "description": "How we helped a local bakery increase online orders by 300% through strategic digital marketing and e-commerce optimization.",
+      "url": "https://proximodigital.com/case-studies/bellas-cupcakes",
+      "author": {
+        "@type": "Organization",
+        "name": "Proximo Digital"
+      }
+    },
+    {
+      "@type": "Article",
+      "name": "The Artisanal Company Case Study",
+      "description": "Transforming a traditional craft business into a modern digital brand with a 250% increase in online revenue.",
+      "url": "https://proximodigital.com/case-studies/artisanal-company",
+      "author": {
+        "@type": "Organization",
+        "name": "Proximo Digital"
+      }
+    },
+    {
+      "@type": "Article",
+      "name": "Chic Boutique Case Study",
+      "description": "Boosting a fashion retailer's online presence with mobile-first design and targeted advertising campaigns.",
+      "url": "https://proximodigital.com/case-studies/chic-boutique",
+      "author": {
+        "@type": "Organization",
+        "name": "Proximo Digital"
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title="Digital Marketing Case Studies | Proven Results by Proximo Digital"
+  description="Explore our successful digital marketing case studies. See how we've helped businesses increase revenue by 300% through website development, SEO, mobile apps, and strategic digital marketing."
+  keywords="digital marketing case studies, SEO case studies, website development results, mobile app success stories, digital agency portfolio, Proximo Digital results"
+  ogType="website"
+  structuredData={caseStudiesStructuredData}
+>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Case Studies</h1>
+      <p class="text-xl max-w-2xl mx-auto">
+        Real results for real businesses - see how we've helped our clients succeed
+      </p>
+    </div>
+  </section>
+
+  <!-- Case Studies Grid -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Bella's Cupcakes -->
+        <div class="bg-white border border-gray-200 p-6">
+          <h3 class="text-xl font-semibold mb-3">Bella's Cupcakes</h3>
+          <p class="text-gray-600 mb-4 text-sm">
+            How we helped a local bakery increase online orders by 300% through strategic digital marketing and e-commerce optimization.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-100 text-gray-700 px-2 py-1 text-xs">E-commerce</span>
+            <span class="bg-gray-100 text-gray-700 px-2 py-1 text-xs">SEO</span>
+            <span class="bg-gray-100 text-gray-700 px-2 py-1 text-xs">Social Media</span>
+          </div>
+          <a href="/case-studies/bellas-cupcakes" class="inline-block bg-blue-600 text-white px-4 py-2 text-sm hover:bg-blue-700">
+            Read Case Study
+          </a>
+        </div>
+
+        <!-- The Artisanal Company -->
+        <div class="bg-white border border-gray-200 p-6">
+          <h3 class="text-xl font-semibold mb-3">The Artisanal Company</h3>
+          <p class="text-gray-600 mb-4 text-sm">
+            Transforming a traditional craft business into a modern digital brand with a 250% increase in online revenue.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-100 text-gray-700 px-2 py-1 text-xs">Branding</span>
+            <span class="bg-gray-100 text-gray-700 px-2 py-1 text-xs">Web Design</span>
+            <span class="bg-gray-100 text-gray-700 px-2 py-1 text-xs">SEM</span>
+          </div>
+          <a href="/case-studies/artisanal-company" class="inline-block bg-blue-600 text-white px-4 py-2 text-sm hover:bg-blue-700">
+            Read Case Study
+          </a>
+        </div>
+
+        <!-- Chic Boutique -->
+        <div class="bg-white border border-gray-200 p-6">
+          <h3 class="text-xl font-semibold mb-3">Chic Boutique</h3>
+          <p class="text-gray-600 mb-4 text-sm">
+            Boosting a fashion retailer's online presence with mobile-first design and targeted advertising campaigns.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-100 text-gray-700 px-2 py-1 text-xs">Mobile App</span>
+            <span class="bg-gray-100 text-gray-700 px-2 py-1 text-xs">UX/UI</span>
+            <span class="bg-gray-100 text-gray-700 px-2 py-1 text-xs">PPC</span>
+          </div>
+          <a href="/case-studies/chic-boutique" class="inline-block bg-blue-600 text-white px-4 py-2 text-sm hover:bg-blue-700">
+            Read Case Study
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Summary -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Our Impact</h2>
+        <p class="text-lg text-gray-600">Numbers that speak for themselves</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="text-4xl font-bold text-blue-600 mb-2">300%</div>
+          <div class="text-gray-600">Average Revenue Increase</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-green-600 mb-2">150+</div>
+          <div class="text-gray-600">Projects Completed</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-purple-600 mb-2">98%</div>
+          <div class="text-gray-600">Client Satisfaction</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-orange-600 mb-2">5+</div>
+          <div class="text-gray-600">Years Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-blue-600 text-white text-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8">Ready to Be Our Next Success Story?</h2>
+      <a href="/contact" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+        Start Your Project
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,16 +1,219 @@
 ---
+import Layout from '../layouts/Layout.astro';
 
+// Homepage structured data with services
+const homepageStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Proximo Digital",
+      "url": "https://proximodigital.com",
+      "logo": "https://proximodigital.com/images/cropped-Black-White-Minimalist-Business-Logo.png",
+      "description": "Leading digital agency providing website development, mobile app development, SEO, and SEM services.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "30 N Gould St Ste R",
+        "addressLocality": "Sheridan",
+        "addressRegion": "WY",
+        "postalCode": "82801",
+        "addressCountry": "US"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-989-999-7452",
+        "contactType": "customer service",
+        "email": "Info@proximodigital.com"
+      },
+      "sameAs": [
+        "https://www.facebook.com/proximodigital",
+        "https://www.linkedin.com/company/proximodigital",
+        "https://twitter.com/proximodigital"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "Proximo Digital",
+      "url": "https://proximodigital.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://proximodigital.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Website Development",
+      "provider": {
+        "@type": "Organization",
+        "name": "Proximo Digital"
+      },
+      "description": "Professional website development services that make your business stand out from the competition."
+    },
+    {
+      "@type": "Service",
+      "name": "Mobile App Development",
+      "provider": {
+        "@type": "Organization",
+        "name": "Proximo Digital"
+      },
+      "description": "Custom mobile application development solutions tailored to your business needs."
+    },
+    {
+      "@type": "Service",
+      "name": "SEO Services",
+      "provider": {
+        "@type": "Organization",
+        "name": "Proximo Digital"
+      },
+      "description": "Comprehensive SEO services to improve your website's search engine rankings and user experience."
+    },
+    {
+      "@type": "Service",
+      "name": "SEM Services",
+      "provider": {
+        "@type": "Organization",
+        "name": "Proximo Digital"
+      },
+      "description": "Search Engine Marketing services to help you get more customers faster with expert SEM strategies."
+    }
+  ]
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout 
+  title="Proximo Digital - Leading Digital Agency | Website Development, SEO & Mobile Apps"
+  description="Transform your business with Proximo Digital's expert services: website development, mobile app development, SEO, and SEM. Trusted by businesses worldwide across all industries."
+  keywords="digital agency, website development, mobile app development, SEO services, SEM, digital marketing, web design, search engine optimization, search engine marketing, Proximo Digital, Wyoming digital agency"
+  ogType="website"
+  structuredData={homepageStructuredData}
+>
+  <!-- Hero Section -->
+  <section class="bg-white py-16">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-5xl font-bold mb-4 text-gray-900">
+        Ask our Digital Agency what we can do for you.
+      </h1>
+      <p class="text-lg text-gray-600 font-medium">
+        HOW WE CAN HELP
+      </p>
+    </div>
+  </section>
+
+  <!-- We work with businesses section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          We work with businesses just like you!
+        </h2>
+        <p class="text-lg text-gray-600 max-w-4xl mx-auto">
+          From established SMEs, eCommerce brands to enterprises looking to increase market share, we've helped achieve it all.
+        </p>
+        <p class="text-lg text-gray-600 max-w-4xl mx-auto mt-4">
+          We're trusted by world wide companies across industries including retail, finance, IT, government, SaaS, technology, real estate, aged care, hospitality and more.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Website Development -->
+        <div class="bg-white p-6 border border-gray-200">
+          <img src="/images/5172479.jpg" alt="Website Development Services - Custom responsive websites by Proximo Digital" class="w-full h-48 object-cover mb-4" loading="lazy" width="400" height="192">
+          <h3 class="text-xl font-bold mb-3">Website Development</h3>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            We specialize in developing websites that make your business stand out from the competition. We build eye-popping websites that are easy to use and have all the right features, helping you prosper online.
+          </p>
+        </div>
+
+        <!-- Mobile App Development -->
+        <div class="bg-white p-6 border border-gray-200">
+          <img src="/images/contextualad_2-scaled-e1672917024933-1024x785.jpg" alt="Mobile App Development Services - iOS and Android apps by Proximo Digital" class="w-full h-48 object-cover mb-4" loading="lazy" width="400" height="192">
+          <h3 class="text-xl font-bold mb-3">Mobile App Development</h3>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            With our mobile app development solution, you can create a custom mobile application by just telling what you desire we will team will develop it.
+          </p>
+        </div>
+
+        <!-- SEO -->
+        <div class="bg-white p-6 border border-gray-200">
+          <img src="/images/12491662_4950546-1024x1024.jpg" alt="SEO Services - Search Engine Optimization by Proximo Digital" class="w-full h-48 object-cover mb-4" loading="lazy" width="400" height="192">
+          <h3 class="text-xl font-bold mb-3">SEO</h3>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            We believe effective SEO involves providing a positive user experience. Our SEO services aim to raise your website's ranking in search engines while also strengthening the relationship between users and your brand.
+          </p>
+        </div>
+
+        <!-- SEM -->
+        <div class="bg-white p-6 border border-gray-200">
+          <img src="/images/10802152_4530890-1024x683.jpg" alt="SEM Services - Search Engine Marketing and Google Ads by Proximo Digital" class="w-full h-48 object-cover mb-4" loading="lazy" width="400" height="192">
+          <h3 class="text-xl font-bold mb-3">SEM</h3>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            We help you get more customers, faster. We've got excellent SEM expertise, backed by vast experience in the industry. That means we know exactly what your customers are looking for.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marketing Services Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
+          Wherever Your Customers Are, We've Got You Covered…
+        </h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Search Engine Marketing -->
+        <div class="text-center bg-gray-50 p-6 border border-gray-200">
+          <h3 class="text-lg font-bold mb-4">Search Engine Marketing</h3>
+          <a href="/services" class="inline-block bg-blue-600 text-white px-4 py-2 text-sm hover:bg-blue-700">
+            Learn More
+          </a>
+        </div>
+
+        <!-- Social Media Marketing -->
+        <div class="text-center bg-gray-50 p-6 border border-gray-200">
+          <h3 class="text-lg font-bold mb-4">Social Media Marketing</h3>
+          <a href="/services" class="inline-block bg-blue-600 text-white px-4 py-2 text-sm hover:bg-blue-700">
+            Learn More
+          </a>
+        </div>
+
+        <!-- Overall Digital Cover -->
+        <div class="text-center bg-gray-50 p-6 border border-gray-200">
+          <h3 class="text-lg font-bold mb-4">Overall Digital Cover</h3>
+          <a href="/services" class="inline-block bg-blue-600 text-white px-4 py-2 text-sm hover:bg-blue-700">
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <blockquote class="text-lg text-gray-700 italic mb-4">
+        "We have been working with Proximo Digital a few years on SEO. It's amazing how we keep evolving & finding new strategies & improvements to drive more and more results for the business. Hanna, our Senior AM, is absolutely amazing & very good at what she does."
+      </blockquote>
+      <cite class="text-base font-semibold text-gray-900">– Jordan Peterson</cite>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-12 bg-white text-center border-t border-gray-200">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-6 text-gray-900">Ready to Get Started?</h2>
+      <a href="/contact" class="inline-block bg-blue-600 text-white px-6 py-3 text-base font-medium hover:bg-blue-700">
+        Contact Us
+      </a>
+    </div>
+  </section>
+</Layout>
