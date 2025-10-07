@@ -1,0 +1,21 @@
+{
+  "name": "Proximo Digital - Digital Agency Services",
+  "short_name": "Proximo Digital",
+  "description": "Leading digital agency providing website development, mobile app development, SEO, and SEM services.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "lang": "en-US",
+  "scope": "/"
+}
