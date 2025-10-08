@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Page Not Found - Proximo Digital"
+  description="The page you're looking for doesn't exist. Return to Proximo Digital's homepage for our digital agency services."
+  noindex={true}
+>
+  <section class="min-h-screen bg-gray-50 flex items-center justify-center py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <div class="mb-8">
+        <h1 class="text-6xl font-bold text-gray-900 mb-4">404</h1>
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">Page Not Found</h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Sorry, we couldn't find the page you're looking for. The page might have been moved, deleted, or you may have entered an incorrect URL.
+        </p>
+      </div>
+
+      <div class="space-y-4 mb-8">
+        <a 
+          href="/" 
+          class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
+        >
+          Go to Homepage
+        </a>
+        
+        <div class="flex flex-wrap justify-center gap-4 text-sm">
+          <a href="/services" class="text-blue-600 hover:text-blue-800">Services</a>
+          <a href="/about" class="text-blue-600 hover:text-blue-800">About Us</a>
+          <a href="/case-studies" class="text-blue-600 hover:text-blue-800">Case Studies</a>
+          <a href="/contact" class="text-blue-600 hover:text-blue-800">Contact</a>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow-sm">
+        <h3 class="text-lg font-semibold mb-3">Need Help?</h3>
+        <p class="text-gray-600 mb-4">
+          If you believe this is an error, please contact us and we'll help you find what you're looking for.
+        </p>
+        <a 
+          href="/contact" 
+          class="inline-block bg-gray-800 text-white px-6 py-2 rounded hover:bg-gray-900 transition-colors"
+        >
+          Contact Support
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
