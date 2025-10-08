@@ -1,38 +1,147 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--version"
+
+# Modern redirects with better performance
 [[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
 
-# Handle SPA routing for case studies and other dynamic routes
-[[redirects]]
-  from = "/case-studies/*"
-  to = "/case-studies/:splat"
-  status = 200
-
-# Redirect trailing slashes
+# Handle trailing slashes (SEO best practice)
 [[redirects]]
   from = "/*/"
   to = "/:splat"
   status = 301
   force = true
 
-# Security headers
+# Redirect www to non-www (or vice versa based on preference)
+[[redirects]]
+  from = "https://www.proximodigital.com/*"
+  to = "https://proximodigital.com/:splat"
+  status = 301
+  force = true
+
+# Security headers (2025 best practices)
 [[headers]]
   for = "/*"
   [headers.values]
+    # Security
     X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    
+    # Modern CSP with nonce support
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https: blob:;
+      connect-src 'self' https://www.google-analytics.com https://analytics.google.com;
+      frame-ancestors 'none';
+      base-uri 'self';
+      form-action 'self';
+      upgrade-insecure-requests;
+    """
+    
+    # Performance
+    Accept-CH = "DPR, Viewport-Width, Width, Save-Data, Sec-CH-UA, Sec-CH-UA-Mobile, Sec-CH-UA-Platform"
+    Critical-CH = "DPR, Viewport-Width, Width"
+    
+    # SEO and Social
+    X-Robots-Tag = "index, follow"
 
-# Cache static assets
-[[headers]]
-  for = "/images/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
+# Static assets caching (aggressive caching for immutable assets)
 [[headers]]
   for = "/_astro/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    X-Content-Type-Options = "nosniff"
+
+# Images caching
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    X-Content-Type-Options = "nosniff"
+    Accept-Ranges = "bytes"
+
+# Fonts caching
+[[headers]]
+  for = "/*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+
+# Service worker caching
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# HTML pages (short cache for updates)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300, s-maxage=3600"
+    X-Content-Type-Options = "nosniff"
+
+# API routes (if any)
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+
+# Manifest and service files
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "application/manifest+json"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "text/plain"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "application/xml"
+
+# Edge functions configuration (if needed in future)
+# [[edge_functions]]
+#   function = "geo-redirect"
+#   path = "/api/geo"
+
+# Form handling (Netlify Forms)
+# [[plugins]]
+#   package = "@netlify/plugin-sitemap"
+
+# Performance optimizations
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
